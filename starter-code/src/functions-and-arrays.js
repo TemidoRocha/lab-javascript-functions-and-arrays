@@ -138,6 +138,11 @@ const wordsCount = [
   'matter'
 ];
 
+function howManyTimes(arr, word) {
+  let howMany = arr.filter(element => element === word);
+  return howMany.length;
+}
+
 // Iteration #8: Bonus
 
 const matrix = [
