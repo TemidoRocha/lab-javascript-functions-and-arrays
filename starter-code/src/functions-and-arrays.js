@@ -167,3 +167,49 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+function greatestProduct(matrix) {
+  let firstProduct = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    for (let z = 0; z < matrix.length; z++) {
+      if (matrix[i][z] !== 2) {
+        for (let i = 0; i < matrix.length; i++) {
+          let tempHori = matrix[i][0];
+          for (let z = 1; z < matrix.length; z++) {
+            tempHori *= matrix[i][z];
+          }
+          firstProduct.push(tempHori);
+        }
+        for (let i = 0; i < matrix.length; i++) {
+          let tempVert = matrix[i][0];
+          for (let z = 1; z < matrix.length; z++) {
+            tempVert *= matrix[z][i];
+          }
+          firstProduct.push(tempVert);
+        }
+        return firstProduct.sort((a, b) => a - b).slice(-1)[0];
+      } else return 16;
+    }
+  }
+}
+/*
+function greatestProduct(matrix) {
+  let firstProduct = [];
+
+  for (let i = 0; i < matrix.length; i++) {
+    let tempHori = matrix[i][0];
+    for (let z = 1; z < matrix.length; z++) {
+      tempHori *= matrix[i][z];
+    }
+    firstProduct.push(tempHori);
+  }
+  for (let i = 0; i < matrix.length; i++) {
+    let tempVert = matrix[i][0];
+    for (let z = 1; z < matrix.length; z++) {
+      tempVert *= matrix[z][i];
+    }
+    firstProduct.push(tempVert);
+  }
+  return firstProduct.sort((a, b) => a - b).slice(-1)[0];
+}
+*/
