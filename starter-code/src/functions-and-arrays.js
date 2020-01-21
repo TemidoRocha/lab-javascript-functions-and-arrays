@@ -113,6 +113,15 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(arr, word) {
+  if (!arr.length) {
+    return false;
+  } else {
+    const found = arr.filter(element => element === word);
+    if (found.length > 0) return true;
+    else return false;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
