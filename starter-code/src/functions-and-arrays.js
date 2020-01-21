@@ -88,12 +88,18 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(words) {
-  for (let i = 0; i < words.length; i++) {
-    for (let z = 0; z < words.length; z++) {
-      if (words[i] === words[z]) wordsUnique.slice(z, z + 1);
+  if (!words.length) {
+    return [];
+  } else {
+    for (let i = 0; i < words.length; i++) {
+      for (let z = 0; z < words.length; z++) {
+        if (words[i] === words[z] && i !== z) {
+          words.splice(z, 1);
+        }
+      }
     }
   }
-  return wordsUnique;
+  return words;
 }
 
 // Iteration #6: Find elements
