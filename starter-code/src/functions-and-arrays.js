@@ -4,12 +4,28 @@ function maxOfTwoNumbers(a, b) {
 }
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-/*function findLongestWord (arr){
-  let temp = '';
-  for (let i=0; i<arr.length; i++){
-      if (arr[i].length > arr[i+1].length) 
+
+function findLongestWord(arr) {
+  let temp = arr[0];
+  if (arr[0] === undefined) return null;
+  else {
+    for (let i = 0; i < arr.length; i++) {
+      if (temp.length < arr[i].length) {
+        temp = arr[i];
+      }
+    }
+    return temp;
   }
-}*/
+}
+
+/**
+ *other possible ways to get null:
+ if(!array.length) return null;
+
+ if(array.length === 0) return null;
+ 
+ */
+
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
@@ -43,8 +59,19 @@ const wordsArr = [
   'palace'
 ];
 
-function averageWordLength(arr) {}
-
+function averageWordLength(arr) {
+  let arrLengthSum = 0;
+  if (arr[0] === undefined) return null;
+  else {
+    /*
+    for (let i = 0; i < arr.length; i++) {
+      arrLengthSum += arr[i].length;
+    }
+    */
+    arr.forEach(x => (arrLengthSum += x.length));
+    return arrLengthSum / arr.length;
+  }
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -59,6 +86,15 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(words) {
+  for (let i = 0; i < words.length; i++) {
+    for (let z = 0; z < words.length; z++) {
+      if (words[i] === words[z]) wordsUnique.slice(z, z + 1);
+    }
+  }
+  return wordsUnique;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
